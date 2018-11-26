@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #editContainer{
+            width: 600px;
+            /* resize: both; */
+            overflow:auto;
+            position: relative;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/main_1.css">
+    <script src="../js_lib/jquery-3.3.1.js"></script>
+    <script src="./js/imageResize_1a.js"></script>
+    <script>
+
+        function t_1() {
+
+            let $editContainer = $('#editContainer');
+            contentEditable($editContainer[0]);
+        }
+        window.onload = function(){
+
+            let $container = $('#editContainer');
+
+            $container.on('dblclick', function(e){
+                // debugger;
+
+                let target = e.target;
+
+                console.log('dblclick=>%s', target.nodeName);
+
+                if(/img/i.test(target.nodeName)){
+                    ImageData.command_1(target);
+                }
+
+            });
+
+            $container.on('dragstart', function(e){
+                let target = e.target;
+
+                console.log('dragstart=>%s', target.nodeName);
+
+                // 若圖片再編輯狀態被拖動
+                // 結束編輯狀態
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <button onclick="t_1()">t_1</button>
+    </div>
+    <div id="editContainer">
+        888888888
+        <p>9999999999</p>
+        <img id="img_1" src="../images/300x220.png">
+        <p>9999999999</p>
+        666666666666
+    </div>
+
+</body>
+
+</html>

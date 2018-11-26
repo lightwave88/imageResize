@@ -1,0 +1,12 @@
+.editContainer img {
+    box-sizing: content-box;
+}
+
+.controlPoint{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #666;
+    position: absolute;
+    cursor: pointer;
+}
